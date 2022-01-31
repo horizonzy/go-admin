@@ -4,20 +4,7 @@ import (
 	"go-admin/app/{{.PackageName}}/models"
 	"go-admin/common/dto"
 	common "go-admin/common/models"
-
-	 {{- $bb := false -}}
-	  {{- range .Columns -}}
-     {{$z := .IsQuery}}
-     {{- if ($z) }}
-     {{if eq .GoType "time.Time"}}{{- $bb = true -}}{{- end -}}
-     {{- end -}}
-     {{- end -}}
-     {{- range .Columns -}}
-     {{if eq .GoType "time.Time"}}{{- $bb = true -}}{{- end -}}
-     {{- end -}}
-     {{- if eq $bb true -}}
-     "time"
-     {{- end }}
+	"time"
 )
 
 type {{.ClassName}}GetPageReq struct {
